@@ -5,22 +5,29 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    public void LoadNextScene() {
-        
+    public void LoadNextScene()
+    {
+
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         int totalScenes = SceneManager.sceneCountInBuildSettings;
-        if(currentSceneIndex + 1 == totalScenes) {
+        if (currentSceneIndex + 1 == totalScenes)
+        {
             SceneManager.LoadScene(0);
-        } else {
+        }
+        else
+        {
             SceneManager.LoadScene(currentSceneIndex + 1);
         }
     }
 
-    public void LoadStartScene() {
+    public void LoadStartScene()
+    {
+        FindObjectOfType<GameSession>().ResetGame();
         SceneManager.LoadScene(0);
     }
 
-    public void QuitGame() {
+    public void QuitGame()
+    {
         Application.Quit();
     }
 }
